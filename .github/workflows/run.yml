@@ -429,4 +429,10 @@ jobs:
           repository: ${{ github.repository }}
           retain_days: 3
           keep_minimum_runs: 1
+  workflow-keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
       - uses: leung7963/gh-workflow-keepalive@main
